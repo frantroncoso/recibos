@@ -21,11 +21,11 @@ public class UserController {
         return instancia;
     }
 
-    public void createUser(Integer id, String nombre, String apellido, LocalDate fechaNac, Integer dni, String estadoCivil, String mail, Integer telefono, String password) throws Exception {
+    public void createUser(String nombre, String apellido, LocalDate fechaNac, Integer dni, String estadoCivil, String mail, Integer telefono, String password) throws Exception {
         String salt = BCrypt.gensalt(12);
         String hashed_password = BCrypt.hashpw(password, salt);
         if(!existeUsuario(dni, password)){
-            User newUser = new User(id, nombre, apellido, fechaNac, dni, estadoCivil, mail, telefono, hashed_password);
+            User newUser = new User(nombre, apellido, fechaNac, dni, estadoCivil, mail, telefono, hashed_password);
             newUser.save();
         } else {
             throw new Exception("Ya existe el usuario con estos datos");

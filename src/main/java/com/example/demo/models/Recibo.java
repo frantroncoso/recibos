@@ -13,8 +13,8 @@ public class Recibo {
     private Integer idRecibo;
     private Document recibo;
 
-    @ManyToOne()
-    @JoinColumn(name = "userId")
+    /*@ManyToOne()
+    @JoinColumn(name = "userId")*/
 
     public Recibo(){}
     public Recibo(Integer idRecibo, Document  recibo){

@@ -12,7 +12,6 @@ public class UserRestController {
 
     @PostMapping("/createUser")
     public void createUser(
-            @RequestParam(name="id") Integer id,
             @RequestParam(name="nombre") String nombre,
             @RequestParam(name="apellido") String apellido,
             @RequestParam(name="fechaNac") LocalDate fechaNac,
@@ -23,7 +22,7 @@ public class UserRestController {
             @RequestParam(name= "password") String password
             ){
         try {
-            UserController.getInstancia().createUser(id, nombre, apellido, fechaNac, dni, estadoCivil, mail, telefono, password);
+            UserController.getInstancia().createUser(nombre, apellido, fechaNac, dni, estadoCivil, mail, telefono, password);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

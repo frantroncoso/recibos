@@ -28,8 +28,7 @@ public class User {
 
     public User(){}
 
-    public User(Integer id, String nombre, String apellido, LocalDate fechaNac, Integer dni, String estadoCivil, String mail, Integer telefono, String password) {
-        this.id = id;
+    public User(String nombre, String apellido, LocalDate fechaNac, Integer dni, String estadoCivil, String mail, Integer telefono, String password) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.fechaNac = fechaNac;

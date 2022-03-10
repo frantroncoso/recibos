@@ -15,7 +15,7 @@ public class ReciboController {
 
     private ReciboController(){}
 
-    public static ReciboController getInstance(){
+    public static ReciboController getInstancia(){
         if (instancia == null){
             instancia = new ReciboController();
         }

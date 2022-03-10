@@ -11,7 +11,7 @@ function Carga(){
         var selectedFile = document.getElementById("formFile").files[0];
         formData.append("file", selectedFile);
         axios
-          .post('/', formData)
+          .post('http://localhost:8080/crearRecibo', formData)
           .then((res) => {
             alert("File Upload success");
           })

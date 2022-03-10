@@ -11,10 +11,19 @@ import javax.swing.text.Document;
 public class Recibo {
     @Id  @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idRecibo;
-    //private Document recibo;
 
-    /*@ManyToOne()
-    @JoinColumn(name = "userId")*/
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+    //private Document recibo;
 
     public Recibo(){}
     public Recibo(Integer idRecibo, Document  recibo){

@@ -7,6 +7,8 @@ import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UserController {
 
@@ -75,5 +77,14 @@ public class UserController {
         } catch (Exception e) {
             return false;
         }
+    }
+
+    public List<UserVO> getAllUsuarios() throws Exception {
+        List<User> usuarios = UserDAO.getInstancia().getAllUsuarios();
+        List<UserVO> usuariosVO = new ArrayList<UserVO>();
+        for (User user : usuarios){
+            usuariosVO.add(user.toVO());
+        }
+        return usuariosVO;
     }
 }

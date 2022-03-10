@@ -24,7 +24,8 @@ public class User {
     private Integer telefono;
     private String password;
 
-    //private List<Recibo> recibos;
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Recibo> recibos;
 
     public User(){}
 
@@ -37,7 +38,6 @@ public class User {
         this.mail = mail;
         this.telefono = telefono;
         this.password = password;
-        //this.recibos = recibos;
     }
 
     public Integer getId() {

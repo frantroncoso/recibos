@@ -7,6 +7,7 @@ import javax.persistence.EntityExistsException;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityNotFoundException;
 import javax.persistence.NoResultException;
+import java.util.List;
 
 public class UserDAO {
 
@@ -84,5 +85,16 @@ public class UserDAO {
             throw new Exception("User not found with id "+userId);
         }
 
+    }
+
+    public List<User> getAllUsuarios() throws Exception {
+        try {
+            EntityManager em = EManager.getEntityManager();
+            List<User> usuarios = em.createQuery("FROM users").getResultList();
+            em.close();
+            return usuarios;
+        } catch(NoResultException e){
+            throw new Exception("No hay tipos de estudios cargados");
+        }
     }
 }

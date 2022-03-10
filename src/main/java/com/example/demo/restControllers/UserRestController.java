@@ -5,6 +5,7 @@ import com.example.demo.vo.UserVO;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @RestController
 @CrossOrigin(origins="http://localhost:3000")
@@ -64,6 +65,11 @@ public class UserRestController {
     @ExceptionHandler(Exception.class)
     public String handleException(Exception e){
         return e.getMessage();
+    }
+
+    @RequestMapping("/getAllUsuarios")
+    public List<UserVO> getAllUsuarios() throws Exception {
+        return UserController.getInstancia().getAllUsuarios();
     }
 
 }

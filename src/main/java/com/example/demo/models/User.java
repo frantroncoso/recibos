@@ -1,11 +1,12 @@
 package com.example.demo.models;
 
 
-import com.example.demo.daos.UserDAO;
+import com.example.demo.daos.ReciboDAO;
 import com.example.demo.vo.UserVO;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name="users")
@@ -22,7 +23,7 @@ public class User {
     private Integer telefono;
     private String password;
 
-    //private List<Recibo> recibos;
+    private List<Recibo> recibos;
 
     public User(){}
 
@@ -36,7 +37,7 @@ public class User {
         this.mail = mail;
         this.telefono = telefono;
         this.password = password;
-        //this.recibos = recibos;
+        this.recibos = recibos;
     }
 
     public Integer getId() {
@@ -114,20 +115,7 @@ public class User {
     public UserVO toVO(){
         return new UserVO(this.id, this.nombre, this.apellido, this.fechaNac, this.dni, this.estadoCivil, this.mail, this.telefono, this.password);
     }
-
-    public void save() throws Exception {
-        UserDAO.getInstancia().createUser(this);
+    public List<Recibo> getMisRecibos() throws Exception {
+        return ReciboDAO.getInstancia().getRecibosByUserId(this.getId());
     }
-
-    public void update() throws Exception {
-        UserDAO.getInstancia().updateUser(this);
-    }
-
-    public void delete() throws Exception {
-        UserDAO.getInstancia().deleteUser(this);
-    }
-
-    /*public List<Recibo> getMisRecibos() throws Exception {
-        return ReciboDAO.getInstancia().
-    }*/
 }

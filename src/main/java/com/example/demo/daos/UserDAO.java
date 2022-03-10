@@ -90,7 +90,7 @@ public class UserDAO {
     public List<User> getAllUsuarios() throws Exception {
         try {
             EntityManager em = EManager.getEntityManager();
-            List<User> usuarios = em.createQuery("FROM users").getResultList();
+            List<User> usuarios = em.createQuery("FROM User").getResultList();
             em.close();
             return usuarios;
         } catch(NoResultException e){

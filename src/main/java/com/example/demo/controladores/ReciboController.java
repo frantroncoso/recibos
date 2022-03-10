@@ -32,7 +32,7 @@ public class ReciboController {
         recibo.delete();
     }
 
-    public List<ReciboVO> getTurnosByIdUser(int idUser) throws Exception {
+    /*public List<ReciboVO> getTurnosByIdUser(int idUser) throws Exception {
         User user = UserDAO.getInstancia().getUserById(idUser);
         List<Recibo> recibos = user.getMisRecibos();
         List<ReciboVO> recibosVO = new ArrayList<ReciboVO>();
@@ -40,6 +40,6 @@ public class ReciboController {
             recibosVO.add(recibo.toVO());
         }
         return recibosVO;
-    }
+    }*/
 
 }

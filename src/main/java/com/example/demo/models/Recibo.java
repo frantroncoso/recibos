@@ -11,7 +11,7 @@ import javax.swing.text.Document;
 public class Recibo {
     @Id  @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idRecibo;
-    private Document recibo;
+    //private Document recibo;
 
     /*@ManyToOne()
     @JoinColumn(name = "userId")*/
@@ -19,7 +19,7 @@ public class Recibo {
     public Recibo(){}
     public Recibo(Integer idRecibo, Document  recibo){
         this.idRecibo = idRecibo;
-        this.recibo = recibo;
+        //this.recibo = recibo;
     }
 
     public Integer getIdRecibo() {
@@ -30,21 +30,21 @@ public class Recibo {
         this.idRecibo = idRecibo;
     }
 
-    public Document getRecibo() {
+    /*public Document getRecibo() {
         return recibo;
     }
 
     public void setRecibo(Document recibo) {
         this.recibo = recibo;
     }
-
+*/
     public void save() throws Exception {
         ReciboDAO.getInstancia().crearRecibo(this);
     }
     public void delete() throws Exception {
         ReciboDAO.getInstancia().eliminarRecibo(this);
     }
-    public ReciboVO toVO(){
+   /* public ReciboVO toVO(){
         return new ReciboVO(this.idRecibo, this.recibo);
-    }
+    }*/
 }

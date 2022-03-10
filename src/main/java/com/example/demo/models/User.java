@@ -24,7 +24,7 @@ public class User {
     private Integer telefono;
     private String password;
 
-    private List<Recibo> recibos;
+    //private List<Recibo> recibos;
 
     public User(){}
 
@@ -37,7 +37,7 @@ public class User {
         this.mail = mail;
         this.telefono = telefono;
         this.password = password;
-        this.recibos = recibos;
+        //this.recibos = recibos;
     }
 
     public Integer getId() {

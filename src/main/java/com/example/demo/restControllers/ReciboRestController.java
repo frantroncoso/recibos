@@ -28,11 +28,11 @@ public class ReciboRestController {
         return instancia;
     }
 
-    @RequestMapping("/getRecibosByUserId")
+    /*@RequestMapping("/getRecibosByUserId")
     public List<ReciboVO> getRecibosByUserId(@RequestParam(name="userId") int userId) throws Exception {
         return ReciboController.getInstancia().getTurnosByIdUser(userId);
     }
-
+*/
     @PostMapping("/crearRecibo")
     public void crearRecibo(@RequestParam(name="userId") int userId) throws Exception {
 

@@ -2,6 +2,7 @@ package com.example.demo.models;
 
 
 import com.example.demo.daos.ReciboDAO;
+import com.example.demo.daos.UserDAO;
 import com.example.demo.vo.UserVO;
 
 import javax.persistence.*;
@@ -117,5 +118,17 @@ public class User {
     }
     public List<Recibo> getMisRecibos() throws Exception {
         return ReciboDAO.getInstancia().getRecibosByUserId(this.getId());
+    }
+
+    public void save() throws Exception {
+        UserDAO.getInstancia().createUser(this);
+    }
+
+    public void update() throws Exception {
+        UserDAO.getInstancia().updateUser(this);
+    }
+
+    public void delete() throws Exception {
+        UserDAO.getInstancia().deleteUser(this);
     }
 }

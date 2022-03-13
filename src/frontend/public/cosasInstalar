@@ -1,0 +1,5 @@
+npm install react-script-tag
+npm i web-vitals --save-dev
+npm install react-router-dom
+
+npm install axios

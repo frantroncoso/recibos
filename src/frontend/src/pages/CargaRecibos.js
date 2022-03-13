@@ -1,5 +1,6 @@
 import React from 'react'; 
 import axios from 'axios';
+import ListaNombresUsuarios from '../components/PaginaCargaRecibos/ListaNombresUsuarios';
 function Carga(){
 
     const submitForm = () => {
@@ -11,7 +12,7 @@ function Carga(){
         var selectedFile = document.getElementById("formFile").files[0];
         formData.append("file", selectedFile);
         axios
-          .post('http://localhost:8080/crearRecibo', formData)
+          .post('http://localhost:8080/', formData)
           .then((res) => {
             alert("File Upload success");
           })
@@ -29,14 +30,10 @@ function Carga(){
         <>
             <div class="m-3"> 
                 <input class="form-control mb-3" type="file" id="formFile" on/>
-                <select class="form-select  mb-3" aria-label=".form-select-lg example">
-                <option selected>Open this select menu</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-            </select>
+                
+            <ListaNombresUsuarios/>
             {/*<img id="imagen"></img>*/}
-            <button type="button" class="btn btn-outline-primary" onClick={submitForm}>Cargar</button>
+            <button type="button" class="btn btn-outline-primary mt-3" onClick={submitForm}>Cargar</button>
             </div>
             
         </>

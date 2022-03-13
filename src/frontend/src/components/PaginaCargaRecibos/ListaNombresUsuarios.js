@@ -1,34 +1,30 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 
-function ListaNombresUsuarios(caracteristicas){
-    const [tiposEstudios, setTiposEstudios] = useState([]);
-
+function ListaNombresUsuarios(){
+    const [usuarios, setUsuarios] = useState([]);
     useEffect(() => {
         const fetchData = async () => { 
-            //const tiposTurnosAPI = await  axios('http://localhost:8080/getAllTiposEstudio');
-            setTiposEstudios(tiposTurnosAPI.data);
+            const usuariosAPI = await  axios('http://localhost:8080/getAllUsuarios');
+            setUsuarios(usuariosAPI.data);
         }
         fetchData();
     },[])
     
     function cambioSelect(){
-        var tipoTurno = document.getElementById("nombreUsuario");
-        var strUser = tipoTurno.options[tipoTurno.selectedIndex].text;
-        /*if(!caracteristicas.esAdmin){
-            caracteristicas.setNombreAnalisis(strUser);
-            caracteristicas.setTipoAnalisis(tipoTurno.value);
-        }*/
+        //var usuarioSeleccionado = document.getElementById("nombreUsuario");
+        //var strUser = usuarioSeleccionado.options[usuarioSeleccionado.selectedIndex].text;
+         
     }    
     
     return(     
 
         <select id="nombreUsuario" class="form-select" aria-label="Default select example" onChange={cambioSelect}>
-            <option value="-1"selected  >Seleccione el tipo de estudio</option>
+            <option value="-1"selected  >Seleccione el empleado</option>
 
-            {tiposEstudios.map(function(tipoTurno){
+            {usuarios.map(function(usuario){
                 return(
-                    <option value={tipoTurno.id} label={tipoTurno.nombre}>{tipoTurno.nombre}</option>
+                    <option value={usuario.id} label={usuario.apellido + ", " + usuario.nombre}>{usuario.apellido + ", " + usuario.nombre}</option>
                 )
             })}
 

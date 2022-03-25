@@ -1,0 +1,7 @@
+.botonCargarRecibo{
+    color: #212529;
+    font-size: 1rem;
+}
+.botonCargarRecibo:hover{
+    text-decoration: none;
+}

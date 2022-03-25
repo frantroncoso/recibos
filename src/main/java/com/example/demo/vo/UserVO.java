@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 public class UserVO {
 
-    private Integer id;
+    private Integer userId;
     private String nombre;
     private String apellido;
     private LocalDate fechaNac;
@@ -14,8 +14,8 @@ public class UserVO {
     private Integer telefono;
     private String password;
 
-    public UserVO(Integer id, String nombre, String apellido, LocalDate fechaNac, Integer dni, String estadoCivil, String mail, Integer telefono, String password) {
-        this.id = id;
+    public UserVO(Integer userId, String nombre, String apellido, LocalDate fechaNac, Integer dni, String estadoCivil, String mail, Integer telefono, String password) {
+        this.userId = userId;
         this.nombre = nombre;
         this.apellido = apellido;
         this.fechaNac = fechaNac;
@@ -26,12 +26,12 @@ public class UserVO {
         this.password = password;
     }
 
-    public Integer getId() {
-        return id;
+    public Integer getUserId() {
+        return userId;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
     public String getNombre() {

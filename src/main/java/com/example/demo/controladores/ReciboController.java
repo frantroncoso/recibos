@@ -5,6 +5,7 @@ import com.example.demo.daos.UserDAO;
 import com.example.demo.models.Recibo;
 import com.example.demo.models.User;
 import com.example.demo.vo.ReciboVO;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.swing.text.Document;
 import java.util.ArrayList;
@@ -22,8 +23,9 @@ public class ReciboController {
         return instancia;
     }
 
-    public  void  crearRecibo(int idRecibo, Document pdfRecibo) throws Exception{
-        Recibo recibo = new Recibo(idRecibo, pdfRecibo);
+    public  void  crearRecibo(String url, int userId, int mes, int año) throws Exception{
+        User user = UserDAO.getInstancia().getUserById(userId);
+        Recibo recibo = new Recibo(url, user, mes, año);
         recibo.save();
     }
 
@@ -32,7 +34,7 @@ public class ReciboController {
         recibo.delete();
     }
 
-    /*public List<ReciboVO> getTurnosByIdUser(int idUser) throws Exception {
+    public List<ReciboVO> getRecivosByIdUser(int idUser) throws Exception {
         User user = UserDAO.getInstancia().getUserById(idUser);
         List<Recibo> recibos = user.getMisRecibos();
         List<ReciboVO> recibosVO = new ArrayList<ReciboVO>();
@@ -40,6 +42,6 @@ public class ReciboController {
             recibosVO.add(recibo.toVO());
         }
         return recibosVO;
-    }*/
+    }
 
 }

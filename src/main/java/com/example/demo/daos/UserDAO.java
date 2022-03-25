@@ -82,7 +82,7 @@ public class UserDAO {
             em.close();
             return user;
         } catch(EntityNotFoundException e){
-            throw new Exception("User not found with id "+userId);
+            throw new Exception("User not found with userId "+userId);
         }
 
     }

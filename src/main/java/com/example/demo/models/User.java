@@ -14,7 +14,7 @@ import java.util.List;
 public class User {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer userId;
     private String nombre;
     private String apellido;
     private LocalDate fechaNac;
@@ -40,12 +40,12 @@ public class User {
         this.password = password;
     }
 
-    public Integer getId() {
-        return id;
+    public Integer getUserId() {
+        return userId;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setId(Integer userId) {
+        this.userId = userId;
     }
 
     public String getNombre() {
@@ -113,10 +113,10 @@ public class User {
     }
 
     public UserVO toVO(){
-        return new UserVO(this.id, this.nombre, this.apellido, this.fechaNac, this.dni, this.estadoCivil, this.mail, this.telefono, this.password);
+        return new UserVO(this.userId, this.nombre, this.apellido, this.fechaNac, this.dni, this.estadoCivil, this.mail, this.telefono, this.password);
     }
     public List<Recibo> getMisRecibos() throws Exception {
-        return ReciboDAO.getInstancia().getRecibosByUserId(this.getId());
+        return ReciboDAO.getInstancia().getRecibosByUserId(this.getUserId());
     }
 
     public void save() throws Exception {

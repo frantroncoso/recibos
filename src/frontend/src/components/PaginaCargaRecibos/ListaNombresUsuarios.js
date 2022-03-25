@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 
-function ListaNombresUsuarios(){
+function ListaNombresUsuarios(caracteristicas){
     const [usuarios, setUsuarios] = useState([]);
     useEffect(() => {
         const fetchData = async () => { 
@@ -12,9 +12,9 @@ function ListaNombresUsuarios(){
     },[])
     
     function cambioSelect(){
-        //var usuarioSeleccionado = document.getElementById("nombreUsuario");
-        //var strUser = usuarioSeleccionado.options[usuarioSeleccionado.selectedIndex].text;
-         
+        var usuarioSeleccionado = document.getElementById("nombreUsuario");
+        var idUsuarioSeleccionado = usuarioSeleccionado.options[usuarioSeleccionado.selectedIndex].value;
+        caracteristicas.setUsuarioSeleccionado(idUsuarioSeleccionado);
     }    
     
     return(     
@@ -24,7 +24,7 @@ function ListaNombresUsuarios(){
 
             {usuarios.map(function(usuario){
                 return(
-                    <option value={usuario.id} label={usuario.apellido + ", " + usuario.nombre}>{usuario.apellido + ", " + usuario.nombre}</option>
+                    <option value={usuario.userId} label={usuario.apellido + ", " + usuario.nombre}>{usuario.apellido + ", " + usuario.nombre}</option>
                 )
             })}
 

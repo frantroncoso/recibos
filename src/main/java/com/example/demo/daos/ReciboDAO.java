@@ -50,7 +50,10 @@ public class ReciboDAO {
     public List<Recibo> getRecibosByUserId(int userId) throws Exception{
         try {
             EntityManager em = EManager.getEntityManager();
-            List<Recibo> recibos = em.createQuery("FROM Recibos r WHERE r.userId = '" + userId + "' ORDER BY r.fecha DESC").getResultList();
+
+            //List<Recibo> recibos = em.createQuery("FROM Recibos r WHERE r.userId = '" + userId + "' ORDER BY r.fecha DESC").getResultList();
+            List<Recibo> recibos = em.createQuery("FROM Recibo r WHERE r.user ='" + userId + "' ORDER BY r.año DESC, r.mes DESC").getResultList();
+            System.out.println(recibos);
             em.close();
             return recibos;
         }catch (NoResultException e){
